@@ -17,7 +17,7 @@ public class TestController {
 
     @GetMapping
     public List<Test> getAllTests() {
-        System.out.println("Getting all tests");
+        System.out.println("Getting all records from tests");
         return testRepository.findAll();
     }
 
