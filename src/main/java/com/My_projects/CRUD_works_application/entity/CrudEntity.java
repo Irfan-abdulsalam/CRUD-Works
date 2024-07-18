@@ -1,25 +1,43 @@
-package com.My_projects.CRUD_operation_application.CRUD_entity;
+package com.My_projects.CRUD_works_application.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "test")
-public class Test {
+@Table(name = "crud__works")
+public class CrudEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
+    @Size(max = 100)
     private String name;
+
+    @NotBlank
+    @Email
+    @Size(max = 100)
     private String email;
+
+    @NotBlank
+    @Size(max = 15)
     private String mobile;
+
+    @NotBlank
+    @Size(max = 200)
     private String address;
+
+    @NotBlank
     private String opType;
 
-
+    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -67,5 +85,17 @@ public class Test {
 
     public void setOpType(String opType) {
         this.opType = opType;
+    }
+
+    @Override
+    public String toString() {
+        return "CrudEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", address='" + address + '\'' +
+                ", opType='" + opType + '\'' +
+                '}';
     }
 }
